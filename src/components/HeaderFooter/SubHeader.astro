@@ -1,0 +1,82 @@
+---
+interface Props {
+    title?: string;
+    lang?: Array<string>;
+    active?: number;
+}
+
+const { title, lang, active } = Astro.props as Props;
+---
+
+<header>
+    {
+        lang && (
+            <ul class="tabs">
+                {lang.map((l: String, i: Number) => {
+                    return (
+                        <li class={(i == active ? "highlight" : "") + " tab"}>
+                            {l}
+                        </li>
+                    );
+                })}
+            </ul>
+        )
+    }
+    {title && <div class="title">{title}</div>}
+</header>
+
+<style>
+    .tabs {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        justify-content: left;
+    }
+    .tab {
+        padding: 0rem 1rem;
+        color: var(--green);
+    }
+    header {
+        background: var(--color-primary);
+        height: 2rem;
+        display: flex;
+        width: 100%;
+        align-items: start;
+        justify-content: left;
+        border-bottom: 1px solid;
+        border-color: aliceblue;
+    }
+    .highlight {
+        background: var(--color-tertiary);
+
+        height: 2rem;
+        margin-top: 0.1%;
+        border: 1px solid;
+        border-bottom: 7px;
+
+        border-color: aliceblue;
+
+        border-bottom-color: var(--color-tertiary);
+    }
+    .title {
+        text-align: center;
+        align-self: center;
+
+        width: 100%;
+    }
+</style>
+
+<script>
+    let array = document.getElementsByClassName("tab");
+    let j = document.getElementsByClassName("code");
+    let z = [...j[0].children];
+    for (let i = 0; i < array.length; i++) {
+        array[i].addEventListener("click", () => {
+            for (let j = 0; j < z.length; j++) {
+                z[j % z.length].style.display = "none";
+            }
+            z[i % z.length].style.display = "block";
+        });
+    }
+</script>

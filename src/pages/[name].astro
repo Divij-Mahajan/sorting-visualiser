@@ -1,0 +1,64 @@
+---
+import AlgoLayout from "../layouts/AlgoLayout.astro";
+import SubHeader from "../components/HeaderFooter/SubHeader.astro";
+import CodeView from "../components/Details/CodeView.astro";
+
+import lookup from "../lookup.json";
+import Visualizer from "../components/Details/Visualizer";
+
+export function getStaticPaths() {
+    return [{ params: { name: "Insertion" } }];
+}
+
+let active = 0;
+let name: any = Astro.params.name ? Astro.params.name : "";
+let arr = lookup[name];
+---
+
+<AlgoLayout>
+    <div slot="code" class="code">
+        {
+            arr.map((key: string, i: number) => {
+                return (
+                    <div
+                        class={
+                            "code-unit" +
+                            " " +
+                            (active == i ? "active" : "non-active")
+                        }
+                    >
+                        <SubHeader lang={arr} active={i} />
+                        <CodeView name={name} index={i} />
+                    </div>
+                );
+            })
+        }
+    </div>
+    <div slot="visual" class="visual">
+        <SubHeader title={name + " Sort"} />
+        <Visualizer client:load />
+    </div>
+</AlgoLayout>
+
+<style>
+    .active {
+        display: block;
+    }
+    .non-active {
+        display: none;
+    }
+    .code-unit {
+        height: 100%;
+    }
+    .code {
+        width: 100%;
+        height: 100%;
+        border-bottom: 1px solid;
+        border-color: aliceblue;
+        position: relative;
+        overflow: hidden;
+    }
+    .visual {
+        width: 100%;
+    }
+</style>

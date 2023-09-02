@@ -1,0 +1,41 @@
+---
+import Header from "../components/HeaderFooter/Header.astro";
+import BaseLayout from "./BaseLayout.astro";
+---
+
+<BaseLayout>
+    <div class="base">
+        <div class="code-slot">
+            <slot name="code" />
+        </div>
+        <div class="visual-slot">
+            <slot name="visual" />
+        </div>
+    </div>
+</BaseLayout>
+
+<style>
+    .base {
+        display: flex;
+        justify-content: space-around;
+        height: 85%;
+        width: 100%;
+    }
+
+    .code-slot {
+        background-color: var(--color-tertiary);
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+    }
+    .visual-slot {
+        background-color: var(--color-tertiary);
+        width: 55%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+    }
+</style>

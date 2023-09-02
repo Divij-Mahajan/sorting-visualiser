@@ -1,0 +1,33 @@
+---
+interface Props {
+    name: string;
+    index: number;
+}
+const { name, index } = Astro.props as Props;
+const Algo = await Astro.glob(`../Markdown/AlgoCode/*/*.md`);
+const narrow = Algo.filter((file) => {
+    return file.file.includes(name);
+});
+let s = narrow[index].compiledContent();
+s = s.replace("#24292e", "#262720");
+---
+
+<div class="canvas-area">
+    <div set:html={s} class="code" />
+</div>
+
+<style>
+    .canvas-area {
+        height: 100%;
+        width: 100%;
+        padding: 1rem;
+        border-color: aliceblue;
+        border-left: 1px solid;
+        border-right: 1px solid;
+        position: relative;
+        overflow: scroll;
+    }
+    .code {
+        background: var(--color-tertiary);
+    }
+</style>

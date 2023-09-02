@@ -1,0 +1,6 @@
+.visualizer-canvas {
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    padding: 2rem;
+}
