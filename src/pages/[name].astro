@@ -4,18 +4,30 @@ import SubHeader from "../components/HeaderFooter/SubHeader.astro";
 import CodeView from "../components/Details/CodeView.astro";
 
 import lookup from "../lookup.json";
-import Visualizer from "../components/Details/Visualizer";
+import Visualizer from "../components/Details/Visualizer2";
+import Details from "../components/Details/Details.astro";
 
 export function getStaticPaths() {
-    return [{ params: { name: "Insertion" } }];
+    let l = [];
+    for (let algo of lookup) {
+        l.push({ params: { name: algo.name } });
+    }
+    return l;
 }
-
 let active = 0;
 let name: any = Astro.params.name ? Astro.params.name : "";
-let arr = lookup[name];
+let arr: Array<string> = [];
+let details;
+for (let algo of lookup) {
+    if (algo.name == name) {
+        arr = algo.lang;
+        details = algo.details;
+        break;
+    }
+}
 ---
 
-<AlgoLayout>
+<AlgoLayout title={name + " Algorithm"}>
     <div slot="code" class="code">
         {
             arr.map((key: string, i: number) => {
@@ -37,6 +49,7 @@ let arr = lookup[name];
     <div slot="visual" class="visual">
         <SubHeader title={name + " Sort"} />
         <Visualizer client:load />
+        <Details details={details} name={name} />
     </div>
 </AlgoLayout>
 
@@ -59,6 +72,7 @@ let arr = lookup[name];
         overflow: hidden;
     }
     .visual {
+        overflow: hidden;
         width: 100%;
     }
 </style>
