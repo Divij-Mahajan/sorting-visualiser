@@ -1,7 +1,7 @@
 ---
 title: cpp
 ---
-```cpp
+```c
 void insertionSort(int arr[], int n)
 {
     int i, key, j;
