@@ -3,6 +3,7 @@ import { useRef, useEffect, useState } from 'react'
 const useCanvas = draw => {
 
   const canvasRef = useRef(null)
+  let frameCount = 0
 
   useEffect(() => {
 
@@ -12,7 +13,7 @@ const useCanvas = draw => {
     let animationFrameId
 
     const render = () => {
-      setFrameCount(frameCount + 1)
+      frameCount++
       draw(context, frameCount)
       animationFrameId = window.requestAnimationFrame(render)
     }
