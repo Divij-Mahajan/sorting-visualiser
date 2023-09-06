@@ -1,9 +1,9 @@
 ---
-import Header from "../components/HeaderFooter/Header.astro";
 import BaseLayout from "./BaseLayout.astro";
+const title = Astro.props.title;
 ---
 
-<BaseLayout>
+<BaseLayout title={title}>
     <div class="base">
         <div class="code-slot">
             <slot name="code" />

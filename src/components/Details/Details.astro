@@ -1,0 +1,42 @@
+---
+let { best, average, worst, space, stable } = Astro.props.details;
+let name = Astro.props.name;
+---
+
+<div class="details">
+    <div class="space">
+        <div>Name:{name}</div>
+        <div>Space Complexity:{space}</div>
+        <div>Stable:{stable}</div>
+    </div>
+    <div class="time">
+        <div>Best : {best}</div>
+        <div>Average : {average}</div>
+        <div>Worst : {worst}</div>
+    </div>
+</div>
+
+<style>
+    .details {
+        width: 100%;
+        display: flex;
+        padding: 2rem 6rem;
+        justify-content: space-between;
+        align-items: start;
+        background: var(--color-primary);
+        font-size: larger;
+        border-top: 1px solid;
+    }
+    .time {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    .space {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+</style>

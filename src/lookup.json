@@ -1,14 +1,34 @@
-{
-    "Insertion": [
-        "C++",
-        "Java",
-        "JS",
-        "Python"
-    ],
-    "Bubble": [
-        "C++",
-        "Java",
-        "JS",
-        "Python"
-    ]
-}
+[
+    {
+        "name": "Insertion",
+        "lang": [
+            "C++",
+            "Java",
+            "JS",
+            "Python"
+        ],
+        "details": {
+            "best": "O(n)",
+            "average": "O(n²)",
+            "worst": "O(n²)",
+            "space": "O(1)",
+            "stable": true
+        }
+    },
+    {
+        "name": "Bubble",
+        "lang": [
+            "C++",
+            "Java",
+            "JS",
+            "Python"
+        ],
+        "details": {
+            "best": "O(n)",
+            "average": "O(n²)",
+            "worst": "O(n²)",
+            "space": "O(1)",
+            "stable": true
+        }
+    }
+]

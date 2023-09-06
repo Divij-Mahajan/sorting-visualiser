@@ -36,6 +36,7 @@ const { title, lang, active } = Astro.props as Props;
     .tab {
         padding: 0rem 1rem;
         color: var(--green);
+        cursor: default;
     }
     header {
         background: var(--color-primary);
@@ -69,8 +70,10 @@ const { title, lang, active } = Astro.props as Props;
 
 <script>
     let array = document.getElementsByClassName("tab");
-    let j = document.getElementsByClassName("code");
-    let z = [...j[0].children];
+    let j = document.getElementsByClassName(
+        "code",
+    ) as HTMLCollectionOf<HTMLElement>;
+    let z: any[] = [...j[0].children];
     for (let i = 0; i < array.length; i++) {
         array[i].addEventListener("click", () => {
             for (let j = 0; j < z.length; j++) {
