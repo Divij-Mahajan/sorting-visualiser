@@ -1,11 +1,13 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 
 const useCanvas = draw => {
 
   const canvasRef = useRef(null)
-  let delay = 1000000000000;
-  let last = 0;
-  let frameCount = 0
+  const [frameCount, setFrameCount] = useState(0)
+  const [last, setLast] = useState(0)
+  let delay = 10000;
+
+
 
   useEffect(() => {
 
@@ -14,11 +16,11 @@ const useCanvas = draw => {
     let animationFrameId
 
     const render = () => {
-      frameCount++
+      setFrameCount(frameCount + 1)
       draw(context, frameCount)
       if (frameCount - last > delay) {
         animationFrameId = window.requestAnimationFrame(render)
-        last = frameCount
+        setLast(frameCount)
       }
     }
     render()
@@ -26,7 +28,7 @@ const useCanvas = draw => {
     return () => {
       window.cancelAnimationFrame(animationFrameId)
     }
-  }, [draw])
+  }, [draw, frameCount])
 
   return canvasRef
 }

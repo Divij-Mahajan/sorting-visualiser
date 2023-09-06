@@ -1,15 +1,9 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import "../Details/visualizer.css"
 import Canvas from "./Canvas.jsx";
 
 export default function Visualizer() {
-    const canvasRef = useRef(null)
-    const [frameCount, setFrameCount] = useState(0)
 
-
-    const canvas = canvasRef.current
-    const context = canvas.getContext('2d')
-    let animationFrameId
     function insertionSort(arr, n, ctx, index, sorted) {
         let i, key, j;
         for (i = 1; i < n; i++) {
@@ -21,13 +15,7 @@ export default function Visualizer() {
                 j = j - 1;
                 setNums(() => { return [...arr] })
                 console.log("hell")
-                const render = () => {
-                    setFrameCount(frameCount + 1)
-                    draw(context, frameCount)
-                    animationFrameId = window.requestAnimationFrame(render)
-                }
-                render()
-
+                xyz(ctx, index, sorted)
             }
             arr[j + 1] = key;
         }
