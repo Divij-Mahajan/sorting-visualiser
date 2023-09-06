@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../Details/visualizer.css"
+import Canvas from "./Canvas.jsx";
 
 export default function Visualizer() {
     function insertionSort(arr, n) {
@@ -120,6 +121,7 @@ export default function Visualizer() {
 
     return (
         <div>
+            <Canvas draw={draw} className="visualizer-canvas" />
             {/*
             <div className="visualizer-canvas">
                 {nums.map((n, i) => {
