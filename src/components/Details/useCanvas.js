@@ -3,7 +3,6 @@ import { useRef, useEffect, useState } from 'react'
 const useCanvas = draw => {
 
   const canvasRef = useRef(null)
-  let frameCount = 0
 
   useEffect(() => {
 
