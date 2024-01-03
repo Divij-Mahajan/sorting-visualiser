@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../Details/visualizer.css"
 
-// Heapsort
+//Heapsort
 function heapSort(arr, N, s) {
     for (var i = Math.floor(N / 2) - 1; i >= 0; i--)
         heapify(arr, N, i, s);
@@ -249,19 +249,23 @@ function mergeSort(arr, n, s) {
 }
 
 
-export default function Visualizer() {
+export default function Visualizer({ name }) {
     let initial = []
+    let sb = (name == "Merge") ? false : true
     const [colorBlue, setColorBlue] = useState([-1, -1])
     for (let i = 0; i < 35; i++) {
         initial.push(i + 1);
     }
     const [array, setArray] = useState(initial)
 
-    function sort(algo, initial, interval, swapBased = true) {
+    function sort(name, initial, interval, swapBased = true) {
         let s = []
         let arr = [...array]
         let b = [...array]
-        algo(arr, arr.length, s);
+
+        name = name.toLowerCase()
+        eval(`${name}Sort(arr,arr.length,s)`)
+        //algo(arr, arr.length, s);
         for (let i = 0; i < s.length; i++) {
             setTimeout(() => {
                 if (swapBased) {
@@ -318,7 +322,7 @@ export default function Visualizer() {
     return (
         <div>
 
-            <button onClick={() => { sort(quickSort, 300, 100, true) }}>sort</button>
+            <button onClick={() => { sort(name, 300, 100, sb) }}>sort</button>
             <button onClick={() => { shuffle(200, 20) }}>shuffle</button>
             <div className="array">
                 {array.map((n, i) => {

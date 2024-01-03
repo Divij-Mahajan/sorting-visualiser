@@ -30,5 +30,117 @@
             "space": "O(1)",
             "stable": true
         }
+    },
+    {
+        "name": "Selection",
+        "lang": [
+            "C++",
+            "Java",
+            "JS",
+            "Python"
+        ],
+        "details": {
+            "best": "O(n²)",
+            "average": "O(n²)",
+            "worst": "O(n²)",
+            "space": "O(1)",
+            "stable": false
+        }
+    },
+    {
+        "name": "Merge",
+        "lang": [
+            "C++",
+            "Java",
+            "JS",
+            "Python"
+        ],
+        "details": {
+            "best": "O(nlogn)",
+            "average": "O(nlogn)",
+            "worst": "O(nlogn)",
+            "space": "O(n)",
+            "stable": true
+        }
+    },
+    {
+        "name": "Quick",
+        "lang": [
+            "C++",
+            "Java",
+            "JS",
+            "Python"
+        ],
+        "details": {
+            "best": "O(nlogn)",
+            "average": "O(nlogn)",
+            "worst": "O(n²)",
+            "space": "O(logn)",
+            "stable": false
+        }
+    },
+    {
+        "name": "Heap",
+        "lang": [
+            "C++",
+            "Java",
+            "JS",
+            "Python"
+        ],
+        "details": {
+            "best": "O(nlogn)",
+            "average": "O(nlogn)",
+            "worst": "O(nlogn)",
+            "space": "O(1)",
+            "stable": false
+        }
+    },
+    {
+        "name": "Cocktail",
+        "lang": [
+            "C++",
+            "Java",
+            "JS",
+            "Python"
+        ],
+        "details": {
+            "best": "O(n)",
+            "average": "O(n²)",
+            "worst": "O(n²)",
+            "space": "O(1)",
+            "stable": true
+        }
+    },
+    {
+        "name": "Shell",
+        "lang": [
+            "C++",
+            "Java",
+            "JS",
+            "Python"
+        ],
+        "details": {
+            "best": "O(nlogn)",
+            "average": "O(n¹·³)",
+            "worst": "O(n¹·⁵)",
+            "space": "O(1)",
+            "stable": false
+        }
+    },
+    {
+        "name": "Pancake",
+        "lang": [
+            "C++",
+            "Java",
+            "JS",
+            "Python"
+        ],
+        "details": {
+            "best": "O(n)",
+            "average": "O(n²)",
+            "worst": "O(n²)",
+            "space": "O(1)",
+            "stable": true
+        }
     }
 ]
