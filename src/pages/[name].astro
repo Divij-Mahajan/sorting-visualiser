@@ -48,7 +48,7 @@ for (let algo of lookup) {
     </div>
     <div slot="visual" class="visual">
         <SubHeader title={name + " Sort"} />
-        <Visualizer client:load />
+        <Visualizer client:visible />
         <Details details={details} name={name} />
     </div>
 </AlgoLayout>
@@ -74,5 +74,6 @@ for (let algo of lookup) {
     .visual {
         overflow: hidden;
         width: 100%;
+        height: 100%;
     }
 </style>
