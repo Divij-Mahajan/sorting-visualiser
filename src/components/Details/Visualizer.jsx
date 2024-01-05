@@ -250,6 +250,7 @@ function mergeSort(arr, n, s) {
 
 
 export default function Visualizer({ name }) {
+
     let sb = (name == "Merge") ? false : true
     const [colorBlue, setColorBlue] = useState([-1, -1])
     let initial = []
@@ -274,7 +275,16 @@ export default function Visualizer({ name }) {
         let b = [...array]
         let arr = [...array]
         name = name.toLowerCase()
-        eval(`${name}Sort(arr,arr.length,s)`)
+        //eval(`${name}Sort(arr,arr.length,s)`)
+        if (name == "insertion") insertionSort(arr, arr.length, s);
+        else if (name == "bubble") bubbleSort(arr, arr.length, s);
+        else if (name == "heap") heapSort(arr, arr.length, s);
+        else if (name == "pancake") pancakeSort(arr, arr.length, s);
+        else if (name == "merge") mergeSort(arr, arr.length, s);
+        else if (name == "quick") quickSort(arr, arr.length, s);
+        else if (name == "shell") shellSort(arr, arr.length, s);
+        else if (name == "selection") selectionSort(arr, arr.length, s);
+        else if (name == "cocktail") insertionSort(arr, arr.length, s);
         //if (name == "selection") interval += s.length
         //algo(arr, arr.length, s);
         setIsSorting(true)
