@@ -5,6 +5,7 @@
     padding-right: 2rem;
 
     width: 100%;
+    height: 16rem;
     align-items: end;
     justify-content: center;
     gap: 0.15rem;
@@ -21,4 +22,39 @@
 
 .blue {
     background-color: var(--blue);
+}
+
+button {
+    background-color: var(--color-primary);
+    box-shadow: 0;
+    border: 1px solid var(--color-secondary);
+    color: var(--white);
+    margin: 0.3rem;
+    padding: 0.3rem;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    border-radius: 0.3rem;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: var(--color-primary);
+    border-radius: 1rem;
+    border: 1px solid var(--color-secondary);
+    height: 12px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    height: 12px;
+    width: 12px;
+    background: #FFFFFF;
+    cursor: pointer;
+    -webkit-appearance: none;
+    border-radius: 12px;
+}
+
+label {
+    padding-left: 1rem;
+    padding-right: 0.5rem;
 }

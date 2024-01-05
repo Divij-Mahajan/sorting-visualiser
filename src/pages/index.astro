@@ -19,25 +19,27 @@ import lookup from "../lookup.json";
             </div>
             <div>Stable</div>
         </div>
-        {
-            lookup.map((lang, i) => {
-                return (
-                    <a class="row" href={`/${lang.name}`}>
-                        <div>{i + 1}</div>
-                        <div class="large-cell">{lang.name}</div>
-                        <div class="complexity">
-                            <div class="complexity-individual rowC">
-                                <div>{lang.details.best}</div>
-                                <div>{lang.details.average}</div>
-                                <div>{lang.details.worst}</div>
-                                <div>{lang.details.space}</div>
+        <div class="rows">
+            {
+                lookup.map((lang, i) => {
+                    return (
+                        <a class="row" href={`/${lang.name}`}>
+                            <div>{i + 1}</div>
+                            <div class="large-cell">{lang.name}</div>
+                            <div class="complexity">
+                                <div class="complexity-individual rowC">
+                                    <div>{lang.details.best}</div>
+                                    <div>{lang.details.average}</div>
+                                    <div>{lang.details.worst}</div>
+                                    <div>{lang.details.space}</div>
+                                </div>
                             </div>
-                        </div>
-                        <div>{lang.details.stable}</div>
-                    </a>
-                );
-            })
-        }
+                            <div>{lang.details.stable}</div>
+                        </a>
+                    );
+                })
+            }
+        </div>
     </div>
 </BaseLayout>
 
@@ -50,6 +52,11 @@ import lookup from "../lookup.json";
     .large-cell {
         width: 10rem;
         text-align: center;
+    }
+    .rows {
+        text-align: center;
+        background-color: var(--color-tertiary);
+        height: 90%;
     }
     .headers {
         padding: 1rem 3rem;
@@ -74,10 +81,15 @@ import lookup from "../lookup.json";
     .complexity-individual {
         display: flex;
         width: 100%;
-
         justify-content: space-between;
+        gap: 1rem;
     }
     .rowC {
         padding: 0rem 0rem 0rem 2em;
+    }
+    .rowC div {
+        width: 2rem;
+        display: flex;
+        justify-content: center;
     }
 </style>

@@ -256,6 +256,9 @@ export default function Visualizer({ name }) {
     for (let i = 0; i < 60; i++) {
         initial.push(i + 1);
     }
+    const [interval, setInterval] = useState(50)
+    const [isSorting, setIsSorting] = useState(false)
+
     const [array, setArray] = useState(initial)
     function fillArray(len) {
         let initial = []
@@ -266,14 +269,16 @@ export default function Visualizer({ name }) {
     }
 
 
-    function sort(name, initial, interval, swapBased = true) {
+    async function sort(name, initial, swapBased = true) {
         let s = []
-        let arr = [...array]
         let b = [...array]
-
+        let arr = [...array]
         name = name.toLowerCase()
         eval(`${name}Sort(arr,arr.length,s)`)
+        //if (name == "selection") interval += s.length
         //algo(arr, arr.length, s);
+        setIsSorting(true)
+        let x = interval * ((name == "selection") ? 3 : 1)
         for (let i = 0; i < s.length; i++) {
             setTimeout(() => {
                 if (swapBased) {
@@ -284,11 +289,12 @@ export default function Visualizer({ name }) {
                     setColorBlue([s[i][0], -1])
                 }
                 setArray(() => { return [...b] })
-            }, initial + i * interval)
+            }, initial + i * x)
         }
         setTimeout(() => {
             setColorBlue([-1, -1])
-        }, initial + s.length * interval)
+            setIsSorting(false)
+        }, initial + s.length * x)
 
     }
     function swap(x, a, b) {
@@ -330,10 +336,23 @@ export default function Visualizer({ name }) {
     return (
         <div>
 
-            <button onClick={() => { sort(name, 300, 10, sb) }}>sort</button>
-            <button onClick={() => { shuffle(200, 10) }}>shuffle</button>
+            <button onClick={() => {
+                if (!isSorting)
+                    sort(name, 300, sb)
+            }}  >Sort</button>
+            <button onClick={() => {
+                if (!isSorting)
+                    shuffle(200, 10)
+            }}>Shuffle</button>
+            <label>Size:</label>
             <input min="1" max="175" type="range" defaultValue={60} onChange={(e) => {
-                fillArray(e.target.value)
+                if (!isSorting)
+                    fillArray(e.target.value)
+            }} />
+            <label>Speed:</label>
+            <input min="-100" max="-1" type="range" defaultValue={-50} onChange={(e) => {
+                if (!isSorting)
+                    setInterval(-1 * e.target.value)
             }} />
             <div className="array">
                 {array.map((n, i) => {

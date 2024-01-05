@@ -5,9 +5,9 @@ let name = Astro.props.name;
 
 <div class="details">
     <div class="space">
-        <div>Name:{name}</div>
-        <div>Space Complexity:{space}</div>
-        <div>Stable:{stable}</div>
+        <div>Name : {name}</div>
+        <div>Space Complexity : {space}</div>
+        <div>Stable : {stable}</div>
     </div>
     <div class="time">
         <div>Best : {best}</div>
@@ -19,14 +19,14 @@ let name = Astro.props.name;
 <style>
     .details {
         width: 100%;
+        height: 12rem;
         display: flex;
-        padding: 4rem 6rem;
-        justify-content: space-between;
-        align-items: start;
+
+        justify-content: space-around;
+        align-items: center;
         background: var(--color-primary);
         font-size: larger;
         border-top: 1px solid;
-        height: 100%;
     }
     .time {
         display: flex;
