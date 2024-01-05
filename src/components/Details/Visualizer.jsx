@@ -250,13 +250,21 @@ function mergeSort(arr, n, s) {
 
 
 export default function Visualizer({ name }) {
-    let initial = []
     let sb = (name == "Merge") ? false : true
     const [colorBlue, setColorBlue] = useState([-1, -1])
-    for (let i = 0; i < 35; i++) {
+    let initial = []
+    for (let i = 0; i < 60; i++) {
         initial.push(i + 1);
     }
     const [array, setArray] = useState(initial)
+    function fillArray(len) {
+        let initial = []
+        for (let i = 0; i < len; i++) {
+            initial.push(i + 1);
+        }
+        setArray(() => { return [...initial] })
+    }
+
 
     function sort(name, initial, interval, swapBased = true) {
         let s = []
@@ -322,8 +330,11 @@ export default function Visualizer({ name }) {
     return (
         <div>
 
-            <button onClick={() => { sort(name, 300, 100, sb) }}>sort</button>
-            <button onClick={() => { shuffle(200, 20) }}>shuffle</button>
+            <button onClick={() => { sort(name, 300, 10, sb) }}>sort</button>
+            <button onClick={() => { shuffle(200, 10) }}>shuffle</button>
+            <input min="1" max="175" type="range" defaultValue={60} onChange={(e) => {
+                fillArray(e.target.value)
+            }} />
             <div className="array">
                 {array.map((n, i) => {
                     let bl = false
@@ -335,7 +346,7 @@ export default function Visualizer({ name }) {
                         }, 10);
                     }
 
-                    return <div className={"bar " + ((bl) ? "blue" : ((x) ? "green" : ""))} key={i} style={{ height: n * 6.5 }} ></div>
+                    return <div className={"bar " + ((bl) ? "blue" : ((x) ? "green" : ""))} key={i} style={{ height: n * 225 / array.length }} ></div>
                 })}
             </div>
         </div>

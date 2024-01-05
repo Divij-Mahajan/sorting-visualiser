@@ -121,7 +121,7 @@
         ],
         "details": {
             "best": "O(nlogn)",
-            "average": "O(n¹·³)",
+            "average": "O(n¹·³³)",
             "worst": "O(n¹·⁵)",
             "space": "O(1)",
             "stable": "false"
