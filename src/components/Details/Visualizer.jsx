@@ -284,7 +284,7 @@ export default function Visualizer({ name }) {
         else if (name == "quick") quickSort(arr, arr.length, s);
         else if (name == "shell") shellSort(arr, arr.length, s);
         else if (name == "selection") selectionSort(arr, arr.length, s);
-        else if (name == "cocktail") insertionSort(arr, arr.length, s);
+        else if (name == "cocktail") cocktailSort(arr, arr.length, s);
         //if (name == "selection") interval += s.length
         //algo(arr, arr.length, s);
         setIsSorting(true)
