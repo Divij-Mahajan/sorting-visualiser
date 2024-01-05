@@ -2,4 +2,4 @@ A neat version of sorting visualizer to visualize the sorting process of common 
 
 DemoLink: https://sortingvisastro.vercel.app/
 
-All the algorithm codes are take from GeekForGeeks website.
+All the algorithm's codes are taken from GeekForGeeks website.
